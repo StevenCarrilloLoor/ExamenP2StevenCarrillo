@@ -17,7 +17,9 @@
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Movistar</x:String>
-                    <!-- Agrega aquí los otros operadores -->
+                    <x:String>Claro</x:String>
+                    <x:String>Tuenti</x:String>
+                    
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>

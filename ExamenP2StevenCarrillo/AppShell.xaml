@@ -8,7 +8,7 @@
     Title="ExamenP2StevenCarrillo">
 
     <ShellContent
-        Title="Home"
+        Title="Seccion de recarga telefonica de Steven Carrillo"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
