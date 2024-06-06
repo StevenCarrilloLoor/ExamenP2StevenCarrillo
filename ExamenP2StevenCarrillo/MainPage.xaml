@@ -1,0 +1,34 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenP2StevenCarrillo.MainPage">
+
+    <StackLayout>
+        <Label Text="Recarga telefónica" 
+               HorizontalOptions="CenterAndExpand" 
+               FontSize="Large" 
+               TextColor="White" 
+               BackgroundColor="Purple" />
+
+        <Label Text="Ingrese el número de teléfono:" />
+        <Entry x:Name="entryNumeroCelular" />
+
+        <Label Text="Seleccione el operador:" />
+        <Picker x:Name="pickerOperador">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Movistar</x:String>
+                    <!-- Agrega aquí los otros operadores -->
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Seleccione el valor de la recarga:" />
+        <RadioButtonGroup x:Name="radioGroupMontoRecarga">
+            <RadioButton Text="3" Value="3" />
+            <RadioButton Text="5" Value="5" />
+            <RadioButton Text="10" Value="10" />
+        </RadioButtonGroup>
+
+        <Button Text="Recargar" Clicked="OnRecargaButtonClicked" />
+    </StackLayout>
+</ContentPage>
