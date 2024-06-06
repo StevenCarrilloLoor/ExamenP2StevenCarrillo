@@ -24,7 +24,7 @@
             </Picker.ItemsSource>
         </Picker>
 
-        <Label Text="Seleccione el valor de la recarga:" />
+        <Label Text="Seleccione el valor de la recarga 3$ , 5$ y 10$ en este orden:" />
         <StackLayout x:Name="radioGroupMontoRecarga">
             <RadioButton Value="3" GroupName="Recarga" />
             <RadioButton Value="5" GroupName="Recarga" />
