@@ -1,25 +1,56 @@
-﻿namespace ExamenP2StevenCarrillo
+﻿using Microsoft.Maui.Controls;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace ExamenP2StevenCarrillo
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+            foreach (var child in radioGroupMontoRecarga.Children)
+            {
+                if (child is RadioButton rb)
+                {
+                    rb.CheckedChanged += OnMontoRecargaChanged;
+                }
+            }
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        void OnMontoRecargaChanged(object sender, CheckedChangedEventArgs e)
         {
-            count++;
+            if (e.Value)
+            {
+                RadioButton rb = (RadioButton)sender;
+                string montoRecarga = rb.Value.ToString();
+                DisplayAlert("Recarga seleccionada", $"Ha seleccionado una recarga de: {montoRecarga} dólares", "OK");
+            }
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        async void OnRecargaButtonClicked(object sender, EventArgs e)
+        {
+            string numeroCelular = entryNumeroCelular.Text;
+            string operador = pickerOperador.SelectedItem.ToString();
+            string montoRecarga = null;
+            foreach (var child in radioGroupMontoRecarga.Children)
+            {
+                if (child is RadioButton rb && rb.IsChecked)
+                {
+                    montoRecarga = rb.Value.ToString();
+                    break;
+                }
+            }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            string mensaje = $"Se hizo una recarga de {montoRecarga} dólares al número celular {numeroCelular}";
+            File.WriteAllText($"{numeroCelular}.txt", mensaje);
+
+            bool respuesta = await DisplayAlert("Confirmación", "¿Desea realizar la recarga?", "Sí", "No");
+            if (respuesta)
+            {
+                await DisplayAlert("Recarga realizada", mensaje, "OK");
+            }
         }
     }
-
 }

@@ -23,11 +23,11 @@
         </Picker>
 
         <Label Text="Seleccione el valor de la recarga:" />
-        <RadioButtonGroup x:Name="radioGroupMontoRecarga">
-            <RadioButton Text="3" Value="3" />
-            <RadioButton Text="5" Value="5" />
-            <RadioButton Text="10" Value="10" />
-        </RadioButtonGroup>
+        <StackLayout x:Name="radioGroupMontoRecarga">
+            <RadioButton Text="3" Value="3" GroupName="Recarga" />
+            <RadioButton Text="5" Value="5" GroupName="Recarga" />
+            <RadioButton Text="10" Value="10" GroupName="Recarga" />
+        </StackLayout>
 
         <Button Text="Recargar" Clicked="OnRecargaButtonClicked" />
     </StackLayout>
