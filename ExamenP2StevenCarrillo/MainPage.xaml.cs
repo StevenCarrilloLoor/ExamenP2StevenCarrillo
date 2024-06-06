@@ -44,7 +44,8 @@ namespace ExamenP2StevenCarrillo
             }
 
             string mensaje = $"Se hizo una recarga de {montoRecarga} dólares al número celular {numeroCelular}";
-            File.WriteAllText($"{numeroCelular}.txt", mensaje);
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{numeroCelular}.txt");
+            File.WriteAllText(path, mensaje);
 
             bool respuesta = await DisplayAlert("Confirmación", "¿Desea realizar la recarga?", "Sí", "No");
             if (respuesta)
